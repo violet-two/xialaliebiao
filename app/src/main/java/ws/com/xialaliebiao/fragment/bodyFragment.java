@@ -79,8 +79,6 @@ public class bodyFragment extends Fragment {
         handlerDownPullUpdate();
         //上拉加载
         handlerUpPullOnload();
-        //初始化事件
-        initEvent();
         return view;
     }
     private void initEvent() {
@@ -183,6 +181,7 @@ public class bodyFragment extends Fragment {
         upPullAdapter = new UpPullAdapter(mData,true);
         recycler_view.setAdapter(upPullAdapter);
         //上拉加载
+        initEvent();
         handlerUpPullOnload();
     }
 }

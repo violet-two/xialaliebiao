@@ -2,14 +2,13 @@ package ws.com.xialaliebiao;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.tabs.TabLayout;
@@ -23,11 +22,13 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ViewPager2 view_pager = findViewById(R.id.view_pager);
+        ViewPager view_pager = findViewById(R.id.view_pager);
         SectionPagerAdapter sectionPagerAdapter = new SectionPagerAdapter(getSupportFragmentManager());
         view_pager.setAdapter(sectionPagerAdapter);
+
         TabLayout tab_layout = findViewById(R.id.tab_layout);
         view_pager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tab_layout));
+        tab_layout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(view_pager));
     }
 
 
